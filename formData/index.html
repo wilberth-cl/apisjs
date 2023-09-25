@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Api js</title>
+</head>
+<body>
+
+	<form id="myform">
+		<fieldset>
+			<legend>Formulario:</legend>
+			<label>ID:<br>
+			<input type="text" name="id" value="my id">
+			</label> <hr>
+			<label>Nombre:<br>
+				<input type="text" name="name" value="my name">
+			</label> <hr>
+			<label>Apellido:<br>
+				<input type="text" name="lastname" value="my lastname">
+			</label> <hr>
+			<label>Edad:<br>
+				<input type="text" name="age" value="my age">
+			</label>
+		</fieldset>		
+	</form>
+
+	<button id="submit">Enviar</button>
+
+
+
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script type="text/javascript">
+
+/**		(async () => {
+			const URI = {
+				'saludo': 'hola', 
+			}
+			const response = await axios.get('http://127.0.0.1:8000/api/form-data',URI);
+			console.log(response);
+		})();	
+**/
+		const submit = document.querySelector('button[id="submit"]');
+
+		submit.addEventListener('click', async () => {
+
+		const formElement = document.querySelector("form");
+			const formdata = new FormData(formElement);
+			const response = await axios.post('http://127.0.0.1:8000/api/form-data',formdata);
+			console.log(response);
+		});
+
+	</script>
+</body>
+</html>
